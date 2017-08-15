@@ -1,5 +1,5 @@
 # FileUpload
-Aplicação web que realiza upload de arquivos em blocos com tamanho máximo de 1Mb, lista os arquivos enviados e realiza o download de um arquivo concluído e previamente enviado.
+Aplicação web que realiza upload de arquivos em blocos com tamanho máximo de 1Mb, lista os arquivos enviados e realiza o download de um arquivo concluído.
 
 ## Configuração inicial
 ### Banco de dados 
