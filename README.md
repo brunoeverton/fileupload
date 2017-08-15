@@ -13,19 +13,18 @@ A aplicação salva os arquivos temporariamente em disco, até que o upload seja
 A utilização do springboot permite que o projeto seja iniciado como uma aplicação java simples a partir da classe:
   /fileupload/src/main/java/br/com/hotmart/fileupload/App.java
 
+## Documentação 
+Com a aplicação em execução a documentação pode ser acessada em: http://{server}:{port}/swagger-ui.html
+
 ## Para a construção da aplicação foi utilizado:
-### SpringBoot
-Iniciar e configurar a aplicação
-### SpringData
-Gerenciamento das entidades em banco
-### Swagger
-Documentação de API
-### DataTables jQuery
-Biblioteca para construir tabelas
-### toastr
-Biblioteca para exibir notificações
-### Plupload
-Biblioteca para realizar o envio dos arquivos
+* [SpringBoot](https://projects.spring.io/spring-boot/) - Iniciar e configurar a aplicação
+* [SpringData](http://projects.spring.io/spring-data/) - Gerenciamento das entidades em banco
+* [Swagger](https://swagger.io/) - Documentação de API
+* [Bootstrap](http://getbootstrap.com/) - Componentes front-end e CSS
+* [Jquery](https://jquery.com/) - Biblioteca javascript para manipulação de objetos html
+* [https://www.datatables.net/](http://www.dropwizard.io/1.0.2/docs/) - Biblioteca para construir tabelas
+* [toastr](https://github.com/CodeSeven/toastr) - Biblioteca para exibir notificações
+* [Plupload](http://www.plupload.com/) - Biblioteca para realizar o envio dos arquivos
 
 
 ## Autor
