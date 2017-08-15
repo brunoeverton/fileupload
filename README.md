@@ -7,7 +7,7 @@ Foi utilizado o banco de dados MySQL e a estrutura está disponível em: db/init
 ### Aplicação
 A configuração da aplicação está disponível em: src/main/resources/application.yml
 #### Local temporário para salvar os arquivos
-A aplicação salva os arquivos temporariamente em disco, até que o upload seja concluído. Deve ser indicado uma pasta com permissão na propriedade 'file.directory'
+A aplicação salva os arquivos temporariamente em disco até que o upload seja concluído. Deve ser indicado o caminho para uma pasta com permissão de leitura e escrita na propriedade 'file.directory' dentro do arquivo de propriedades application.yml
 ```
 ...
 file:
