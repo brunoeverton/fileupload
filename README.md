@@ -8,6 +8,11 @@ Foi utilizado o banco de dados MySQL e a estrutura está disponível em: db/init
 A configuração da aplicação está disponível em: src/main/resources/application.yml
 #### Local temporário para salvar os arquivos
 A aplicação salva os arquivos temporariamente em disco, até que o upload seja concluído. Deve ser indicado uma pasta com permissão na propriedade 'file.directory'
+```
+...
+file:
+  directory: /Users/brunoeverton/Documents/tmp/
+```
 
 ## Iniciando pela IDE
 A utilização do springboot permite que o projeto seja iniciado como uma aplicação java simples a partir da classe:
