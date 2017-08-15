@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>FileUpload</title>
+	
+	<link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/toastr.css" />
+	<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.css" />
+	
+	<script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>		
+	<script type="text/javascript" src="/js/plupload/plupload.full.min.js"></script>
+	<script type="text/javascript" src="/js/toastr/toastr.js"></script>	
+	<script type="text/javascript" src="/js/dataTables/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="/js/utils.js"></script>	
+	
+	<script type="text/javascript" src="/js/fileupload.js"></script>
+</head>
+<body>
+	<div class="container" style="min-height: 500px">
+
+		<div class="starter-template">
+			<h1>FileUpload</h1>
+
+			<div class="form-horizontal" id="container">
+				<div class="form-group form-group-lg" id="userEmail-div">
+					<label class="col-sm-2 control-label">E-mail</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control " id="userEmail" />
+					</div>
+				</div>
+
+				<div class="form-group form-group-lg"  id="bth-file-div">
+					<label class="col-sm-2 control-label">Arquivo</label>
+					<div class="col-sm-10">
+						<button id="bth-file" class="btn btn-primary btn-lg">Selecionar arquivo</button>
+						<div id="filelist"></div>
+					</div>
+
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button id="bth-submit"
+							class="btn btn-success btn-lg">Enviar arquivo</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="form-horizontal" id="container">
+				<button id="bth-search"
+					class="btn btn-warning btn-lg">Atualizar</button>
+		
+				
+				<table id="table_id" class="display">
+			        <thead>
+			            <tr>
+			                <th>E-mail</th>
+			                <th>Nome do arquivo</th>
+			                <th>Status</th>
+			                <th>Tempo de envio (ms)</th>
+			                <th>Quantidade de blocos</th>
+			                <th></th>
+			            </tr>
+			        </thead>
+		
+				</table>
+			</div>
+		</div>
+
+
+
+
+</body>
+</html>

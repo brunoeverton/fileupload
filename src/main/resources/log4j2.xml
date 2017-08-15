@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<properties>
+		<property name="patternlayout">%d{HH:mm:ss.SSS} %-5level --- [%27t] %-50.50c - %msg%n</property>
+		<property name="filename">./log/fileupload.log</property>
+		<property name="filenamePattern">./log/fileupload-%d{dd-MM-yyyy}-%i.log.gz
+		</property>
+	</properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${patternlayout}" />
+		</Console>
+		<RollingFile name="RollingFile" fileName="${filename}" filePattern="${filenamePattern}">
+			<PatternLayout>
+				<Pattern>${patternlayout}</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="250 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingFile" />
+		</Root>
+		<logger name="org.springframework" level="INFO" />
+		<logger name="org.hibernate" level="ERROR" />
+		<logger name="com.zaxxer.hikari" level="ERROR" />
+
+	</Loggers>
+</Configuration>
