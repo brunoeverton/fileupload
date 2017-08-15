@@ -15,9 +15,15 @@ A utilização do springboot permite que o projeto seja iniciado como uma aplica
 
 ## Acessando a aplicação
 A página inicial pode ser acessada em: http://{server}:{port}
+```
+exemplo: http://localhost:8080/
+```
 
 ## Documentação 
 Com a aplicação em execução a documentação pode ser acessada em: http://{server}:{port}/swagger-ui.html
+```
+exemplo: http://localhost:8080/swagger-ui.html
+```
 
 ## Para a construção da aplicação foi utilizado:
 * [SpringBoot](https://projects.spring.io/spring-boot/) - Iniciar e configurar a aplicação
