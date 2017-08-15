@@ -9,8 +9,9 @@ A configuração da aplicação está disponível em: src/main/resources/applica
 #### Local temporário para salvar os arquivos
 A aplicação salva os arquivos temporariamente em disco, até que o upload seja concluído. Deve ser indicado uma pasta com permissão na propriedade 'file.directory'
 
-## Aplicação
-/fileupload/src/main/java/br/com/hotmart/fileupload/App.java
+## Iniciando pela IDE
+A utilização do springboot permite que o projeto seja iniciado como uma aplicação java simples a partir da classe:
+  /fileupload/src/main/java/br/com/hotmart/fileupload/App.java
 
 ## Para a construção da aplicação foi utilizado:
 ### SpringBoot
