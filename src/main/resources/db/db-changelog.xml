@@ -1,0 +1,122 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="bruno_everton" id="1503537790910-1">
+    		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="file_data" />
+			</not>
+		</preConditions>
+        <createTable catalogName="fileupload" tableName="file_data">
+            <column autoIncrement="true" name="id" type="BIGINT UNSIGNED">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="bytes" type="LONGBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="block_index" type="INT"/>
+            <column name="file_data_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="bruno_everton" id="1503537790910-2">
+    		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="file_info" />
+			</not>
+		</preConditions>    
+        <createTable catalogName="fileupload" tableName="file_info">
+            <column autoIncrement="true" name="id" type="BIGINT UNSIGNED">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="TINYINT(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="upload_start" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="upload_finish" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="blocks_amount" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_block_received" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file_data_id" type="BIGINT UNSIGNED"/>
+            <column name="user_id" type="BIGINT UNSIGNED">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="bruno_everton" id="1503537790910-3">
+    		<preConditions onFail="MARK_RAN">
+			<not>
+				<tableExists tableName="user" />
+			</not>
+		</preConditions>     
+        <createTable catalogName="fileupload" tableName="user">
+            <column autoIncrement="true" name="id" type="BIGINT UNSIGNED">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="email" type="VARCHAR(200)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="bruno_everton" id="1503537790910-4">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<indexExists indexName="UC_Email" />
+			</not>
+		</preConditions>    
+        <addUniqueConstraint catalogName="fileupload" columnNames="email" constraintName="UC_Email" tableName="user"/>
+    </changeSet>
+    <changeSet author="bruno_everton" id="1503537790910-5">
+    		<preConditions onFail="MARK_RAN">
+			<not>
+				<indexExists indexName="UC_FileName_User" />
+			</not>
+		</preConditions>  
+        <addUniqueConstraint catalogName="fileupload" columnNames="name, user_id" constraintName="UC_FileName_User" tableName="file_info"/>
+    </changeSet>
+    <changeSet author="bruno_everton" id="1503537790910-6">
+    		<preConditions onFail="MARK_RAN">
+			<not>
+				<indexExists indexName="FK_FileData" />
+			</not>
+		</preConditions>      
+        <createIndex catalogName="fileupload" indexName="FK_FileData" tableName="file_info">
+            <column name="file_data_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bruno_everton" id="1503537790910-7">
+    		<preConditions onFail="MARK_RAN">
+			<not>
+				<indexExists indexName="FK_User" />
+			</not>
+		</preConditions>       
+        <createIndex catalogName="fileupload" indexName="FK_User" tableName="file_info">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="bruno_everton" id="1503537790910-8">
+    		<preConditions onFail="MARK_RAN">
+			<not>
+				<indexExists indexName="FK_FileData" />
+			</not>
+		</preConditions>     
+        <addForeignKeyConstraint baseColumnNames="file_data_id" baseTableCatalogName="fileupload" baseTableName="file_info" constraintName="FK_FileData" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableCatalogName="fileupload" referencedTableName="file_data"/>
+    </changeSet>
+    <changeSet author="bruno_everton" id="1503537790910-9">
+		<preConditions onFail="MARK_RAN">
+			<not>
+				<foreignKeyConstraintExists schemaName="fileupload"
+					foreignKeyName="FK_User" />
+			</not>
+		</preConditions>    
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableCatalogName="fileupload" baseTableName="file_info" constraintName="FK_User" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableCatalogName="fileupload" referencedTableName="user"/>
+    </changeSet>
+</databaseChangeLog>

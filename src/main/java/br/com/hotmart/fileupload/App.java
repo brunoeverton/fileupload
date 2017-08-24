@@ -1,10 +1,13 @@
 package br.com.hotmart.fileupload;
 
+import javax.sql.DataSource;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
+import liquibase.integration.spring.SpringLiquibase;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -26,6 +29,22 @@ public class App
     {
         SpringApplication.run(App.class, args);
     }
+    
+	/**
+	 * Configuracao do liquibase
+	 * 
+	 * @param dataSource
+	 * @return
+	 */
+	@Bean
+	public SpringLiquibase liquibase(DataSource dataSource) {
+
+		SpringLiquibase springLiquibase = new SpringLiquibase();
+		springLiquibase.setDataSource(dataSource);
+		springLiquibase.setChangeLog("classpath:/db/db-changelog.xml");
+		springLiquibase.setContexts("test, production");
+		return springLiquibase;
+	}
     
     /**
      * Cria bean do swagger
